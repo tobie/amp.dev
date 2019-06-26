@@ -78,21 +78,20 @@ teaser:
         </div>
       </div>
 
-      <p>If you want to know more about how AMP handles those under the hood read on with <a href="{{ g.doc('/content/amp-dev/about/how-amp-works.html', locale=doc.locale).url.path }}">How AMP works</a>.</p>
-
       <hr>
 
-      {% set categories = g.categories('/content/amp-dev/documentation/components/reference', locale=doc.locale) %}
-      {% include '/views/partials/category-filter.j2' %}
+      <h3>Categories</h3>
 
-      {% do doc.styles.addCssFile('css/components/organisms/teaser-grid.css') %}
-      <div class="ap-o-teaser-grid">
-        {# Hardcode to a length of 9 teasers as there will be at least that much #}
-        <div class="ap-o-teaser-grid-list ap-o-teaser-grid-list-count-9">
-          {% for teaser_doc in g.collection('/content/amp-dev/documentation/components/reference').list_docs(locale=doc.locale, order_by='title') %}
-            {% include '/views/partials/teaser.j2' %}
-          {% endfor %}
+      <div>
+        <div>
+          {% include '/views/partials/category-navigation.j2' %}
+          {% set categories = g.categories('/content/amp-dev/documentation/components/reference', locale=doc.locale) %}
+          {% include '/views/partials/category-navigation.j2' %}
         </div>
+
+          {% for teaser_doc in g.collection('/content/amp-dev/documentation/components/reference').list_docs(locale=doc.locale, order_by='title') %}
+            {% include '/views/partials/teaser-table.j2' %}
+          {% endfor %}
       </div>
     </section>
   </div>

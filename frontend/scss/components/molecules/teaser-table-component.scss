@@ -1,0 +1,113 @@
+/*
+
+##################################
+### ORGANISM: teaser component ###
+##################################
+
+### INFO:
+
+*/
+
+@import '../../extends';
+@import '../../functions';
+@import '../../mixins';
+@import '../../variables';
+
+@import 'teaser';
+
+.#{molecule('teaser-table-component')} {
+
+
+	&.#{molecule('teaser')} {
+
+		& > a {
+			@include teaser-linking;
+			height: 100%;
+
+			&:hover {
+				@include teaser-linking-hover;
+			}
+		}
+	}
+
+	.#{molecule('teaser')} {
+		margin: 0;
+
+		&-tags {
+			font-size: 0;
+			position: relative;
+			z-index: 1;
+			margin-right: 20px;
+			align-self: center;
+			display: flex;
+			& > .ap-m-tag {
+				border-radius: 50%;
+				min-width: 8px;
+				margin-right: 3px;
+			}
+		}
+
+		&-row {
+			display: grid;
+			width: 100%;
+			grid-template-columns: 5% 25% 50% 20%;
+			width: 100%;
+			grid-column-gap: 10px;
+			justify-content: start;
+			border-bottom: 1px solid rgba(0,0,0,0.05)
+		}
+
+		&-row:first-of-type {
+			border-top: 1px solid rgba(0,0,0,0.05);
+		}
+
+		&-row:hover {
+			background-color: color('wild-sand');
+		}
+
+		&-name {
+			@include teaser-header;
+			background: none;
+			display: flex;
+			align-self: center;
+			justify-self: start;
+
+			&-title {
+				@include teaser-header-title;
+				@include txt-mono;
+        font-weight: bold;
+				font-size: 0.875em;
+				color: color('river-bed');
+			}
+		}
+
+		&-info {
+			@include teaser-content;
+			align-self: center;
+			padding: 11px 0;
+		}
+
+		&-image {
+			@include teaser-image;
+		}
+
+		&-headline {
+			@include teaser-headline;
+			margin-bottom: 0.65em;
+			align-self: center;
+		}
+
+		&-copy {
+			@include teaser-copy;
+			font-size: 0.875em;
+			align-self: center;
+		}
+
+		&-link {
+			display: flex;
+			margin-right: 20px;
+			align-self: center;
+			justify-self: end;
+		}
+	}
+}

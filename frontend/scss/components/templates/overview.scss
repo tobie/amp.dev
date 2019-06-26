@@ -1,0 +1,38 @@
+/*
+
+#########################
+### TEMPLATE: default ###
+#########################
+
+### INFO:
+
+*/
+@import '../../extends';
+@import '../../functions';
+@import '../../mixins';
+@import '../../variables';
+
+@import '../atoms/_text.scss';
+@import '../atoms/_color.scss';
+@import '../atoms/_headline.scss';
+
+@import '../templates/_default.scss';
+
+.#{template('overview')} {
+
+  .#{utility('container')} {
+    @include container;
+  }
+
+  .#{utility('content')} {
+    @include content;
+  }
+
+  .#{utility('sidebar')} {
+    @include sidebar;
+  }
+
+  .#{utility('sidebar')} + .#{utility('content')} {
+    @include content-with-sidebar;
+  }
+}

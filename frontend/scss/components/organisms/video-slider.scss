@@ -16,9 +16,7 @@
 @import 'components/atoms/_text.scss';
 
 .#{utility('video-slider')} {
-  @media (min-width: 930px) {
-    padding: 40px 60px 80px 60px;
-  }
+
 }
 .#{organism('video-slider')} {
   &-text {

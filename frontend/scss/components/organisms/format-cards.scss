@@ -15,30 +15,27 @@
 @import 'components/atoms/_text.scss';
 
 .#{utility('format-cards')} {
+  grid-column: 3 / 23;
 
 }
 .#{organism('format-cards')} {
-  grid-column: 1 / -1;
-  width: 100%;
-  height: auto;
   display: grid;
-  grid-gap: 0;
   grid-column-gap: 30px;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  // grid-template-rows: 8fr 26fr 6fr 11fr 11fr 12fr 26fr;
-
-  // @media (min-width: 768px) {
-  //   grid-template-columns: 32fr 5fr 4fr 10fr 7fr 10fr 8fr 24fr;
-  // }
+  grid-template-columns: repeat(12, 1fr);
+      align-items: stretch;
 
   &-card {
-    box-shadow: 6px 9px 40px 0px rgba(0,0,0,0.1);
-    border-radius: 10px;
-    margin: 20px 0;
     position: relative;
-    transition: 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+    grid-column: span 6;
+    margin: 20px 0;
+    border-radius: 10px;
     background-color: color('white');
-    grid-row: 2 / 6;
+    box-shadow: 6px 9px 40px 0px rgba(0,0,0,0.1);
+    transition: 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+
+    @media (min-width: 1024px) {
+      grid-column: span 3;
+  	}
 
     &:hover {
       box-shadow: 12px 18px 80px 10px rgba(0,0,0,0.05);
@@ -88,19 +85,15 @@
 
     &-websites {
       @include gradient-websites;
-      grid-column: 1;
     }
     &-stories {
       @include gradient-stories;
-      grid-column: 2;
     }
     &-ads {
       @include gradient-ads;
-      grid-column: 3;
     }
     &-emails {
       @include gradient-e-mails;
-      grid-column: 4;
     }
 
   }

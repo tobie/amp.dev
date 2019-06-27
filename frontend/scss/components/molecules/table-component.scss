@@ -1,0 +1,153 @@
+/*
+
+##################################
+### ORGANISM: table component ###
+##################################
+
+### INFO:
+
+*/
+
+@import '../../extends';
+@import '../../functions';
+@import '../../mixins';
+@import '../../variables';
+
+@import 'components/atoms/_text.scss';
+@import 'components/atoms/_color.scss';
+
+.#{molecule('table-component')} {
+
+	&-navigation {
+		display: flex;
+		padding-bottom: 24px;
+		flex-wrap: wrap;
+
+		a {
+			padding-right: 22px;
+			color: color('river-bed');
+			font-weight: 400;
+		}
+	}
+
+	&-container {
+		height: 700px;
+		overflow-y: scroll;
+	}
+
+	&-tags {
+		font-size: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+		z-index: 1;
+		display: flex;
+
+		& > .ap-m-tag:not(:last-of-type) {
+			margin-right: 5px;
+		}
+	}
+
+	@media (min-width: 768px) {
+		&-tags {
+			position: relative;
+
+			& > .ap-m-tag {
+				border-radius: 50%;
+				min-width: 8px;
+				margin-right: 3px;
+			}
+		}
+	}
+
+	&-row {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		width: 100%;
+		grid-column-gap: 10px;
+		border-bottom: 1px solid rgba(0,0,0,0.05)
+	}
+
+	@media (min-width: 768px) {
+		&-row {
+			display: grid;
+			grid-template-columns: 5% 25% 50% 20%;
+			flex-direction: row;
+			justify-content: start;
+		}
+		&-name, &-header, &-copy, &-tags, &-info, &-link {
+			align-self: center;
+		}
+	}
+
+
+	&-row:first-of-type {
+		border-top: 1px solid rgba(0,0,0,0.05);
+		margin-top: 14px;
+	}
+
+	&-used-components {
+		display: none;
+	}
+
+	&-row:hover {
+		background-color: color('wild-sand');
+
+		.ap-m-table-component-copy {
+			display: none;
+		}
+
+		.ap-m-table-component-used-components {
+			display: block;
+		}
+	}
+
+	&-name {
+		background: none;
+		display: flex;
+		justify-self: start;
+		padding-top: 10px;
+
+		&-title {
+			@include txt-mono;
+			font-weight: bold;
+			font-size: 0.875em;
+			color: color('river-bed');
+			margin: 0;
+		}
+	}
+
+	@media (min-width: 768px) {
+		&-name {
+			padding-top: 0;
+		}
+	}
+
+	&-info {
+		padding: 11px 0;
+	}
+
+	&-headline {
+		@include txt;
+		@include txt-3;
+		line-height: 1.6em;
+		margin-bottom: 0.65em;
+	}
+
+	&-copy {
+		@include txt-3;
+		display: block;
+		line-height: 1.6em;
+		margin: 0;
+	}
+
+	&-link {
+		@include txt-3;
+		display: flex;
+		align-items: center;
+		margin-right: 30px;
+		justify-self: end;
+	}
+}

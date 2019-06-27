@@ -43,14 +43,44 @@ teaser:
       <p>A hands-on introduction to AMP focusing on code and live samples. Learn how to create AMP pages and see examples for all AMP components.</p>
 
       {% set categories = g.categories('/content/amp-dev/documentation/examples/documentation', locale=doc.locale) %}
-      {% include '/views/partials/category-filter.j2' %}
 
-      {% do doc.styles.addCssFile('css/components/organisms/teaser-grid.css') %}
-      <div class="ap-o-teaser-grid">
-        {# Hardcode to a length of 9 teasers as there will be at least that much #}
-        <div class="ap-o-teaser-grid-list ap-o-teaser-grid-list-count-9">
-          {% for teaser_doc in g.collection('/content/amp-dev/documentation/examples/documentation').list_docs(locale=doc.locale, order_by='title') %}
-            {% include '/views/partials/teaser.j2' %}
+      <h2>Categories</h2>
+      {% set components = g.categories('/content/amp-dev/documentation/examples/documentation', locale=doc.locale) %}
+      {% do doc.styles.addCssFile('/css/components/molecules/table-component.css') %}
+      <div class="ap-m-table-component-navigation">
+      {% for category, docs in components %}
+        <a href="#{{category}}">{{ category }}</a>
+      {% endfor %}
+    </div>
+      {% for category, docs in components %}
+      <div class="ap-m-table-component-container">
+        <h4 id="{{ category }}">{{ category }}</h4>
+        <div class="ap-m-table-components">
+          {% for component in docs %}
+          <div class="ap-m-table-component-row">
+            {% if component.formats %}
+            {% do doc.styles.addCssFile('/css/components/molecules/tag.css') %}
+            <div class="ap-m-table-component-tags">
+              {% for format in component.formats %}
+              <div class="ap-m-tag ap-m-tag-{{ format }} ap-m-table-component-tag"></div>
+              {% endfor %}
+            </div>
+            {% endif %}
+            <div class="ap-m-table-component-name">
+              <h4 class="ap-m-table-component-name-title">{{ component.titles('teaser') }}</h4>
+            </div>
+            <div class="ap-m-table-component-info">
+              <div class="ap-m-table-component-copy"><strong>{{ component.used_components|length }} AMP components</strong></div>
+              <div class="ap-m-table-component-used-components"><code>{{ component.used_components.title }}</code></div>
+            </div>
+            <div class="ap-m-table-component-link">
+              <div class="ap-a-ico ap-m-lnk-icon">
+                <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#internal"></use></svg>
+              </div>
+              <a class="ap-m-table-link" href="{{ component.url.path }}"> see component</a>
+            </div>
+          </div>
+          {% endfor %}
           {% endfor %}
         </div>
       </div>

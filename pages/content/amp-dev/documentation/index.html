@@ -23,9 +23,15 @@ flyout:
 <main class="ap--main ap-t-overview ">
   <div class="ap--container">
     <div class="ap--content">
+
+      {% do doc.styles.addCssFile('/css/components/molecules/overview-title.css') %}
       <section class="ap--section">
-        <h1>{{ doc.title }}</h1>
-        <p>Whether you are a publisher, e-commerce company, storyteller, advertiser or email sender, AMP makes it easy to create great experiences on the web. Use AMP to build:</p>
+        <div class="ap--overview-title">
+          <div class="ap-m-overview-title">
+            <h1>{{ doc.title }}</h1>
+            <p>Whether you are a publisher, e-commerce company, storyteller, advertiser or email sender, AMP makes it easy to create great experiences on the web. Use AMP to build:</p>
+          </div>
+        </div>
       </section>
 
       {% do doc.styles.addCssFile('/css/components/organisms/format-cards.css') %}
@@ -96,7 +102,7 @@ flyout:
               <div class="ap-o-format-cards-card-body">
                 <div class="ap-a-ico ap-o-format-cards-card-icon ap-o-format-cards-card-icon-emails">
                   <svg>
-                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#amp-websites"></use>
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#amp-email"></use>
                   </svg>
                 </div>
                 <h4 class="ap-o-format-cards-card-headline">AMP Websites</h4>

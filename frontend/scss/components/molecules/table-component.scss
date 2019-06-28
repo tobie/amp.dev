@@ -18,21 +18,27 @@
 
 .#{molecule('table-component')} {
 
+
+	&-container {
+		position: relative;
+	}
+
 	&-navigation {
+		position: sticky;
+		position: -webkit-sticky;
+		top: 50px;
+		background-color: color('whisper');
 		display: flex;
 		padding-bottom: 24px;
 		flex-wrap: wrap;
+		z-index: 10;
+		width: 100%;
 
 		a {
 			padding-right: 22px;
 			color: color('river-bed');
 			font-weight: 400;
 		}
-	}
-
-	&-container {
-		height: 700px;
-		overflow-y: scroll;
 	}
 
 	&-tags {

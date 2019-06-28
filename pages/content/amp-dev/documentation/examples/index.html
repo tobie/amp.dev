@@ -47,13 +47,13 @@ teaser:
       <h2>Categories</h2>
       {% set components = g.categories('/content/amp-dev/documentation/examples/documentation', locale=doc.locale) %}
       {% do doc.styles.addCssFile('/css/components/molecules/table-component.css') %}
-      <div class="ap-m-table-component-navigation">
-      {% for category, docs in components %}
-        <a href="#{{category}}">{{ category }}</a>
-      {% endfor %}
-    </div>
-      {% for category, docs in components %}
       <div class="ap-m-table-component-container">
+        <div class="ap-m-table-component-navigation">
+        {% for category, docs in components %}
+          <a href="#{{category}}">{{ category }}</a>
+        {% endfor %}
+        </div>
+        {% for category, docs in components %}
         <h4 id="{{ category }}">{{ category }}</h4>
         <div class="ap-m-table-components">
           {% for component in docs %}
@@ -71,7 +71,7 @@ teaser:
             </div>
             <div class="ap-m-table-component-info">
               <div class="ap-m-table-component-copy"><strong>{{ component.used_components|length }} AMP components</strong></div>
-              <div class="ap-m-table-component-used-components"><code>{{ component.used_components.title }}</code></div>
+              <div class="ap-m-table-component-used-components"><code>{{ component.titles('teaser')}}</code></div>
             </div>
             <div class="ap-m-table-component-link">
               <div class="ap-a-ico ap-m-lnk-icon">

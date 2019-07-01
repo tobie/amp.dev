@@ -13,14 +13,69 @@ description: 'All resources you need to build stunning websites with AMP: Guides
 
 flyout:
   description: Get started
-  icon: guides-documents
+  icon: start
+
+
+format_cards:
+  - title: AMP Websites
+    description: Create flawless wesbites. Compelling, smooth and instant.
+    type: websites
+    link:
+      text: Build your first website
+      url: url
+  - title: AMP Stories
+    description: Create snackable, immersive and immediate stories on your website.
+    type: stories
+    link:
+      text: Build your first storie
+      url: url
+  - title: AMP Ads
+    description: Extend your website with a fast and lightweight ad experiences.
+    type: ads
+    link:
+      text: Build your first ad
+      url: url
+  - title: AMP Emails
+    description: Create emails, that allow your recipients to interact dynamically with content.
+    type: email
+    link:
+      text: Build your first email
+      url: url
+
+
+highlight_teaser:
+  - title: Make your page discoverable
+    description: "Tips for linking AMP pages and using metadata"
+    url: /about/ads.html
+    tags:
+    - websites
+    - stories
+    - ads
+    - emails
+  - title: Google Search guidelines for AMP pages
+    description: "Tips for linking AMP pages and using metadata"
+    url: /about/ads.html
+    tags:
+    - websites
+    - stories
+    - ads
+    - emails
+  - title: Testing CORS in AMP
+    description: Find instructions for validation your AMP pages
+    url: /about/ads.html
+    tags:
+    - websites
+    - stories
+    - ads
+    - emails
+
 ---
 
 {% do doc.styles.addCssFile('/css/components/templates/overview.css') %}
 
 
 {% block main %}
-<main class="ap--main ap-t-overview ">
+<main class="ap--main ap-t-overview">
   <div class="ap--container">
     <div class="ap--content">
 
@@ -38,86 +93,68 @@ flyout:
       <section class="ap--section">
         <div class="ap--format-cards">
           <div class="ap-o-format-cards">
-            <div class="ap-o-format-cards-card ap-o-format-cards-card--light ap-o-format-cards-card-websites">
+            {% for card in doc.format_cards %}
+            <div class="ap-o-format-cards-card ap-o-format-cards-card-{{ card.type }}">
               <div class="ap-o-format-cards-card-body">
-                <div class="ap-a-ico ap-o-format-cards-card-icon ap-o-format-cards-card-icon-stories">
+                <div class="ap-a-ico ap-o-format-cards-card-icon">
                   <svg>
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#amp-{{ card.type }}"></use>
+                  </svg>
+                </div>
+                <h4 class="ap-o-format-cards-card-headline">{{ card.title }}</h4>
+                <p class="ap-o-format-cards-card-copy">{{ card.description }}</p>
+              </div>
+              <a href="" class="ap-o-format-cards-card-link ap-m-lnk">
+                <div class="ap-a-ico ap-m-lnk-icon">
+                  {% do doc.icons.useIcon('icons/internal.svg') %}
+                  <svg>
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#internal"></use>
+                  </svg>
+                </div>
+                <span class="ap-m-lnk-text">{{ card.link.text }}</span>
+              </a>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </section>
+
+
+
+      {% do doc.styles.addCssFile('css/components/molecules/teaser-guides.css') %}
+      <section class="ap--section">
+        <h2>Highlighted Guides & Tutorials</h2>
+        <div class="ap--teaser-guides">
+          <div class="ap-m-teaser-guides">
+            {% for teaser in doc.highlight_teaser %}
+              <div class="ap-m-teaser">
+                <div class="ap-m-teaser-tags">
+                  {% for tag in teaser.tags %}
+                    <div class="ap-m-tag ap-m-tag-{{ tag }}"></div>
+                  {% endfor %}
+                </div>
+                <div class="ap-m-teaser-placeholder">
+                  <svg class="ap-m-teaser-icon">
                     <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#amp-websites"></use>
                   </svg>
                 </div>
-                <h4 class="ap-o-format-cards-card-headline">AMP Websites</h4>
-                <p class="ap-o-format-cards-card-copy">Create snackable, immersive and immediate stories on your website.</p>
+                <div class="ap-m-teaser-content">
+                  <div class="ap-m-teaser-content-text">
+                    <h4>{{ teaser.title }}</h4>
+                    <p>{{ teaser.description }}</p>
+                  </div>
+                  <a href="" class="ap-m-teaser-link ap-m-lnk">
+                    <div class="ap-a-ico ap-m-lnk-icon">
+                      {% do doc.icons.useIcon('icons/internal.svg') %}
+                      <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#internal"></use>
+                      </svg>
+                    </div>
+                    <span class="ap-m-lnk-text">Learn more</span>
+                  </a>
+                </div>
               </div>
-              <a href="" class="ap-o-format-cards-card-link ap-m-lnk">
-                <div class="ap-a-ico ap-m-lnk-icon">
-                  {% do doc.icons.useIcon('icons/internal.svg') %}
-                  <svg>
-                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#internal"></use>
-                  </svg>
-                </div>
-                <span class="ap-m-lnk-text">Build your first website</span>
-              </a>
-            </div>
-            <div class="ap-o-format-cards-card ap-o-format-cards-card--dark ap-o-format-cards-card-stories">
-              <div class="ap-o-format-cards-card-body">
-                <div class="ap-a-ico ap-o-format-cards-card-icon ap-o-format-cards-card-icon-stories">
-                  <svg>
-                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#amp-stories"></use>
-                  </svg>
-                </div>
-                <h4 class="ap-o-format-cards-card-headline">AMP Stories</h4>
-                <p class="ap-o-format-cards-card-copy">Create snackable, immersive and immediate stories on your stories.</p>
-              </div>
-              <a href="" class="ap-o-format-cards-card-link ap-m-lnk">
-                <div class="ap-a-ico ap-m-lnk-icon">
-                  {% do doc.icons.useIcon('icons/internal.svg') %}
-                  <svg>
-                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#internal"></use>
-                  </svg>
-                </div>
-                <span class="ap-m-lnk-text">Build your first story</span>
-              </a>
-            </div>
-            <div class="ap-o-format-cards-card ap-o-format-cards-card--light ap-o-format-cards-card-ads">
-              <div class="ap-o-format-cards-card-body">
-                <div class="ap-a-ico ap-o-format-cards-card-icon ap-o-format-cards-card-icon-ads">
-                  <svg>
-                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#amp-ads"></use>
-                  </svg>
-                </div>
-                <h4 class="ap-o-format-cards-card-headline">AMP Websites</h4>
-                <p class="ap-o-format-cards-card-copy">Create snackable, immersive and immediate stories on your ad.</p>
-              </div>
-              <a href="" class="ap-o-format-cards-card-link ap-m-lnk">
-                <div class="ap-a-ico ap-m-lnk-icon">
-                  {% do doc.icons.useIcon('icons/internal.svg') %}
-                  <svg>
-                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#internal"></use>
-                  </svg>
-                </div>
-                <span class="ap-m-lnk-text">Build your first ad</span>
-              </a>
-            </div>
-            <div class="ap-o-format-cards-card ap-o-format-cards-card--dark ap-o-format-cards-card-emails">
-              <div class="ap-o-format-cards-card-body">
-                <div class="ap-a-ico ap-o-format-cards-card-icon ap-o-format-cards-card-icon-emails">
-                  <svg>
-                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#amp-email"></use>
-                  </svg>
-                </div>
-                <h4 class="ap-o-format-cards-card-headline">AMP Websites</h4>
-                <p class="ap-o-format-cards-card-copy">Create snackable, immersive and immediate emails on your website.</p>
-              </div>
-              <a href="" class="ap-o-format-cards-card-link ap-m-lnk">
-                <div class="ap-a-ico ap-m-lnk-icon">
-                  {% do doc.icons.useIcon('icons/internal.svg') %}
-                  <svg>
-                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#internal"></use>
-                  </svg>
-                </div>
-                <span class="ap-m-lnk-text">Build your first email</span>
-              </a>
-            </div>
+            {% endfor %}
           </div>
         </div>
       </section>

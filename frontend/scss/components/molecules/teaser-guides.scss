@@ -1,0 +1,87 @@
+/*
+
+#####################################
+### MOLECULE: guides and totorial teaser on get started page ###
+#####################################
+
+
+*/
+
+@import '../../extends';
+@import '../../functions';
+@import '../../mixins';
+@import '../../variables';
+
+@import '../atoms/_color';
+
+.#{utility('teaser-guides')} {
+  grid-column: 3 / 23;
+}
+
+.#{molecule('teaser-guides')} {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-column-gap: 30px;
+  width: 100%;
+
+  .ap-m-teaser {
+    position: relative;
+    grid-column: span 12;
+    min-height: 315px;
+    margin-top: .75em;
+    border: solid 1px #e8e8e8;
+    box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.15);
+
+    @media (min-width: 600px) {
+      grid-column: span 6;
+  	}
+
+    @media (min-width: 1024px) {
+      grid-column: span 4 ;
+  	}
+
+    &-tags {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      width: 100%;
+
+      .ap-m-tag {
+        min-width: 26px;
+        padding: 4px 0;
+
+        &-websites {
+          @include gradient-websites;
+        }
+        &-stories {
+          @include gradient-stories;
+        }
+        &-ads {
+          @include gradient-ads;
+        }
+        &-emails {
+          @include gradient-e-mails;
+        }
+      }
+    }
+    &-placeholder {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 151px;
+      background-color: #48525c;
+    }
+    &-icon {
+      max-width: 108px;
+      fill: color('white');
+    }
+    &-content {
+      padding: 0 20px;
+    }
+  }
+
+
+}

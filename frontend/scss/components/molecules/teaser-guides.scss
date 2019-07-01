@@ -15,22 +15,30 @@
 @import '../atoms/_color';
 
 .#{utility('teaser-guides')} {
+  padding: 35px 0;
   grid-column: 3 / 23;
 }
 
 .#{molecule('teaser-guides')} {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-column-gap: 30px;
-  width: 100%;
+
+  .ap-m-teaser-container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-column-gap: 30px;
+    width: 100%;
+  }
 
   .ap-m-teaser {
     position: relative;
     grid-column: span 12;
     min-height: 315px;
-    margin-top: .75em;
+    margin: 16px 0;
     border: solid 1px #e8e8e8;
-    box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.15);
+    background-color: color('white');
+
+    &--highlighted {
+      box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.15);
+    }
 
     @media (min-width: 600px) {
       grid-column: span 6;
@@ -71,8 +79,8 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 151px;
-      background-color: #48525c;
+      height: 157px;
+      background-color: color('river-bed');
     }
     &-icon {
       max-width: 108px;

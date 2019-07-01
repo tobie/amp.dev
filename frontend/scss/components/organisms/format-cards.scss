@@ -16,7 +16,6 @@
 
 .#{utility('format-cards')} {
   grid-column: 3 / 23;
-
 }
 .#{organism('format-cards')} {
   display: grid;
@@ -45,32 +44,15 @@
       box-shadow: 12px 18px 80px 10px rgba(0,0,0,0.05);
     }
 
-    &--light {
-      .ap-o-format-cards-card-headline, .ap-o-format-cards-card-copy {
-        color: color('white');
-      }
-      svg {
-        fill: color('white');
-      }
-    }
-    &--dark {
-      .ap-o-format-cards-card-headline, .ap-o-format-cards-card-copy {
-        color: color('ultramarine');
-      }
-      svg {
-        fill: color('ultramarine');
-      }
-    }
-
     &-body {
       height: calc(100% - 47px);
       min-height: 145px;
-      padding: 15px 25px;
+      padding: 25px;
     }
     &-icon {
       position: absolute;
       left: 23px;
-      top: 16px;
+      top: 23px;
       height: 35px;
       width: 35px;
     }
@@ -88,6 +70,23 @@
       }
     }
 
+    &-websites, &-ads {
+      .ap-o-format-cards-card-headline, .ap-o-format-cards-card-copy {
+        color: color('white');
+      }
+      .ap-o-format-cards-card-icon {
+        fill: color('white');
+      }
+    }
+    &-stories, &-email {
+      .ap-o-format-cards-card-headline, .ap-o-format-cards-card-copy {
+        color: color('ultramarine');
+      }
+      .ap-o-format-cards-card-icon {
+        fill: color('ultramarine');
+      }
+    }
+
     &-websites {
       @include gradient-websites;
     }
@@ -97,9 +96,8 @@
     &-ads {
       @include gradient-ads;
     }
-    &-emails {
+    &-email {
       @include gradient-e-mails;
     }
-
   }
 }

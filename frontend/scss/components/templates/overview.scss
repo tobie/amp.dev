@@ -34,7 +34,12 @@
   }
 
   .#{utility('section')} {
-    grid-column: 2 / 24;
+    grid-column: 1 / 25;
+    padding: 0 4.1666%;
+
+    &--dark {
+      background-color: color('whisper');
+    }
   }
 
   .#{utility('sidebar')} {

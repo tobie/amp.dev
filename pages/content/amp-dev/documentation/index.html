@@ -93,8 +93,45 @@ format_cards:
       </section>
 
 
-      <section class="ap--section">
-        {% include '/views/partials/resources-grid.j2' %}
+      {% do doc.styles.addCssFile('/css/components/organisms/resources-overview.css') %}
+      <section class="ap--section--fullscreen">
+        <div class="ap--resources-overview">
+          <div class="ap-o-resources-overview ap-o-resources-overview-websites">
+            <div class="ap-info-box">
+              <div class="ap-info-box-text">
+                <h4>Choose your destination</h4>
+                <p><strong>NOTE –</strong> Throughout the AMP documentation you will find a switch on the upper left side to quickly change the AMP format you’re working on.</p>
+              </div>
+              <div class="ap-format-toggle">
+                <button class="ap-format-toggle-button ap-format-toggle-button-websites ap-format-toggle-button-selected" type="button" name="button">
+                  <span class="ap-a-ico">
+                    <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#amp-websites"></use></svg>
+                  </span>
+                  <span>Websites</span>
+                </button>
+                <button class="ap-format-toggle-button ap-format-toggle-button-stories" type="button" name="button">
+                  <span class="ap-a-ico">
+                    <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#amp-stories"></use></svg>
+                  </span>
+                  <span>Stories</span>
+                </button>
+                <button class="ap-format-toggle-button ap-format-toggle-button-ads" type="button" name="button">
+                  <span class="ap-a-ico">
+                    <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#amp-ads"></use></svg>
+                  </span>
+                  <span>Ads</span>
+                </button>
+                <button class="ap-format-toggle-button ap-format-toggle-button-email" type="button" name="button">
+                  <span class="ap-a-ico">
+                    <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#amp-email"></use></svg>
+                  </span>
+                  <span>Email</span>
+                </button>
+              </div>
+            </div>
+            {% include '/views/partials/resources-grid.j2' %}
+          </div>
+        </div>
       </section>
 
       {% do doc.styles.addCssFile('/css/components/organisms/video-slider.css') %}

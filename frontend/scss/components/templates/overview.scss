@@ -34,11 +34,10 @@
   }
 
   .#{utility('section')} {
-    grid-column: 1 / 25;
-    padding: 0 4.1666%;
+    grid-column: 3 / 23;
 
-    &--dark {
-      background-color: color('whisper');
+    &--fullscreen {
+      grid-column: 1 / 25;
     }
   }
 

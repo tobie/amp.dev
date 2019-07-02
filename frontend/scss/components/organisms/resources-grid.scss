@@ -16,7 +16,7 @@
 @import 'components/atoms/_text.scss';
 
 .#{utility('resources-grid')} {
-  margin: 40px 0;
+  grid-column: 3 / 23;
 }
 .#{organism('resources-grid')} {
   &-cards {
@@ -38,8 +38,9 @@
     @media (min-width: 600px) {
       grid-column: span 6;
     }
+
     @media (min-width: 1024px) {
-      grid-column: span 3;
+      grid-column: span 4;
   	}
 
     &:hover {

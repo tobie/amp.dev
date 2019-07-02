@@ -21,7 +21,7 @@
 
 }
 .#{organism('resources-overview')} {
-  margin: 10% 0;
+  margin: 15% 0 5% 0;
   padding: 3% 8.32%;
 
   .ap-info-box {
@@ -29,6 +29,7 @@
     flex-direction: column;
     min-height: 200px;
     margin-top: -10%;
+    margin-bottom: 7%;
     padding: 32px;
     border-radius: 5px;
     background-color: color('white');
@@ -47,8 +48,6 @@
     .ap-format-toggle {
       display: flex;
       flex-direction: column;
-
-
 
       &-button {
         display: flex;
@@ -97,24 +96,30 @@
         }
       }
     }
-
   }
 
   &-websites {
     @include gradient-websites;
+    h2 {
+      color: color('white');
+    }
   }
   &-stories {
     @include gradient-stories;
+    .ap--resources-grid h2 {
+      color: color('pigment-indigo');
+    }
   }
   &-ads {
     @include gradient-ads;
+    .ap--resources-grid h2 {
+      color: color('white');
+    }
   }
   &-email {
     @include gradient-e-mails;
+    .ap--resources-grid h2 {
+      color: color('ultramarine');
+    }
   }
-
-  h2 {
-    color: color('white');
-  }
-
 }

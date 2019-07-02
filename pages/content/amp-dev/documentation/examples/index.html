@@ -45,45 +45,61 @@ teaser:
       {% set categories = g.categories('/content/amp-dev/documentation/examples/documentation', locale=doc.locale) %}
 
       <h2>Categories</h2>
-      {% set components = g.categories('/content/amp-dev/documentation/examples/documentation', locale=doc.locale) %}
+
+      {% do doc.styles.addCssFile('css/components/organisms/teaser-grid.css') %}
       {% do doc.styles.addCssFile('/css/components/molecules/table-component.css') %}
+
       <div class="ap-m-table-component-container">
         <div class="ap-m-table-component-navigation">
-        {% for category, docs in components %}
+        {% for category, docs in categories %}
           <a href="#{{category}}">{{ category }}</a>
         {% endfor %}
         </div>
-        {% for category, docs in components %}
-        <h4 id="{{ category }}">{{ category }}</h4>
-        <div class="ap-m-table-components">
-          {% for component in docs %}
+
+      {% for category, documents in categories %}
+      <h4 id="{{ category }}">{{ category }}</h4>
+      <div class="ap-o-teaser-grid">
+        {# Hardcode to a length of 9 teasers as there will be at least that much #}
+        <div class="ap-o-teaser-grid-list ap-o-teaser-grid-list-count-9">
+        {% for document in documents if document.teaser %}
+          {% with teaser_doc = document %}
+          {% include '/views/partials/teaser.j2' %}
+          {% endwith %}
+        {% endfor %}
+        </div>
+      </div>
+      <div class="ap-m-table-component">
+        {% for document in documents if not document.teaser %}
+        <a href="{{ document.url.path }}">
           <div class="ap-m-table-component-row">
-            {% if component.formats %}
+            {% if document.formats %}
             {% do doc.styles.addCssFile('/css/components/molecules/tag.css') %}
             <div class="ap-m-table-component-tags">
-              {% for format in component.formats %}
+              {% for format in document.formats %}
               <div class="ap-m-tag ap-m-tag-{{ format }} ap-m-table-component-tag"></div>
               {% endfor %}
             </div>
             {% endif %}
             <div class="ap-m-table-component-name">
-              <h4 class="ap-m-table-component-name-title">{{ component.titles('teaser') }}</h4>
+              <span class="ap-m-table-component-name-title">{{ document.titles('teaser') }}</span>
             </div>
             <div class="ap-m-table-component-info">
-              <div class="ap-m-table-component-copy"><strong>{{ component.used_components|length }} AMP components</strong></div>
-              <div class="ap-m-table-component-used-components"><code>{{ component.titles('teaser')}}</code></div>
-            </div>
-            <div class="ap-m-table-component-link">
-              <div class="ap-a-ico ap-m-lnk-icon">
-                <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#internal"></use></svg>
+              <div class="ap-m-table-component-used-components">
+                {% if document.used_components %}
+                {% for component in document.used_components %}
+                <code>{{ component }}</code>
+                {% endfor %}
+                {% else %}
+                <p>No component is used</p>
+                {% endif %}
               </div>
-              <a class="ap-m-table-link" href="{{ component.url.path }}"> see component</a>
             </div>
           </div>
-          {% endfor %}
-          {% endfor %}
-        </div>
+        </a>
+        {% endfor %}
       </div>
+      {% endfor %}
+    </div>
     </section>
   </div>
 </main>

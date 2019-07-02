@@ -18,9 +18,14 @@
 
 .#{molecule('table-component')} {
 
+	margin-bottom: 59px;
 
 	&-container {
 		position: relative;
+
+		h4 {
+			margin-bottom: 18px;
+		}
 	}
 
 	&-navigation {
@@ -38,6 +43,11 @@
 			padding-right: 22px;
 			color: color('river-bed');
 			font-weight: 400;
+			font-size: 0.875;
+		}
+
+		a:hover, a:active {
+			color: color('blue-ribbon');
 		}
 	}
 
@@ -56,6 +66,8 @@
 
 	@media (min-width: 768px) {
 		&-tags {
+			height: 8px;
+			align-self: center;
 			position: relative;
 
 			& > .ap-m-tag {
@@ -71,7 +83,6 @@
 		display: flex;
 		flex-direction: column;
 		width: 100%;
-		width: 100%;
 		grid-column-gap: 10px;
 		border-bottom: 1px solid rgba(0,0,0,0.05)
 	}
@@ -79,11 +90,15 @@
 	@media (min-width: 768px) {
 		&-row {
 			display: grid;
-			grid-template-columns: 5% 25% 50% 20%;
+			grid-template-columns: 5% 40% 55%;
 			flex-direction: row;
 			justify-content: start;
+
+			.ap-m-teaser-placeholder{
+				align-self: center;
+			}
 		}
-		&-name, &-header, &-copy, &-tags, &-info, &-link {
+		&-name, &-header, &-copy, &-info, &-link {
 			align-self: center;
 		}
 	}
@@ -91,30 +106,15 @@
 
 	&-row:first-of-type {
 		border-top: 1px solid rgba(0,0,0,0.05);
-		margin-top: 14px;
-	}
-
-	&-used-components {
-		display: none;
-	}
-
-	&-row:hover {
-		background-color: color('wild-sand');
-
-		.ap-m-table-component-copy {
-			display: none;
-		}
-
-		.ap-m-table-component-used-components {
-			display: block;
-		}
 	}
 
 	&-name {
 		background: none;
 		display: flex;
 		justify-self: start;
+		height: 100%;
 		padding-top: 10px;
+		align-items: center;
 
 		&-title {
 			@include txt-mono;
@@ -125,9 +125,15 @@
 		}
 	}
 
+	&-name:hover {
+		background-color: color('wild-sand');
+	}
+
 	@media (min-width: 768px) {
 		&-name {
 			padding-top: 0;
+			width: 100%;
+    	padding-left: 35px;
 		}
 	}
 
@@ -149,11 +155,9 @@
 		margin: 0;
 	}
 
-	&-link {
-		@include txt-3;
-		display: flex;
-		align-items: center;
-		margin-right: 30px;
-		justify-self: end;
+	&-used-components {
+		.code-example code {
+			color: color('charade');
+		}
 	}
 }

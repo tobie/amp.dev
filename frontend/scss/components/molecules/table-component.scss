@@ -20,24 +20,21 @@
 
 	margin-bottom: 59px;
 
-	&-container {
-		position: relative;
-
-		h4 {
-			margin-bottom: 18px;
-		}
+	h4 {
+		margin-bottom: 18px;
 	}
 
 	&-navigation {
 		position: sticky;
 		position: -webkit-sticky;
 		top: 50px;
+		width: 100%;
 		background-color: color('whisper');
 		display: flex;
 		padding-bottom: 24px;
 		flex-wrap: wrap;
-		z-index: 10;
-		width: 100%;
+		z-index: 20;
+		line-height: 1.6;
 
 		a {
 			padding-right: 22px;
@@ -49,6 +46,49 @@
 		a:hover, a:active {
 			color: color('blue-ribbon');
 		}
+	}
+
+	&-row {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		grid-column-gap: 10px;
+	}
+
+	@media (min-width: 768px) {
+		&-row {
+			display: grid;
+			grid-template-columns: 5% 40% 55%;
+			flex-direction: row;
+			justify-content: start;
+
+			&--components {
+				display: grid;
+				grid-template-columns: 5% 40% 55%;
+				flex-direction: row;
+				justify-content: start;
+			}
+			&--components:hover {
+				background-color: color('wild-sand');
+			}
+
+			.ap-m-teaser-placeholder{
+				align-self: center;
+			}
+		}
+		&-name, &-header, &-copy, &-info, &-link {
+			align-self: center;
+		}
+	}
+
+	&-link{
+		display: block;
+		border-bottom: 1px solid rgba(0,0,0,0.05);
+	}
+
+	&-link:nth-of-type(1) {
+		border-top: 1px solid rgba(0,0,0,0.05);
 	}
 
 	&-tags {
@@ -78,36 +118,6 @@
 		}
 	}
 
-	&-row {
-		position: relative;
-		display: flex;
-		flex-direction: column;
-		width: 100%;
-		grid-column-gap: 10px;
-		border-bottom: 1px solid rgba(0,0,0,0.05)
-	}
-
-	@media (min-width: 768px) {
-		&-row {
-			display: grid;
-			grid-template-columns: 5% 40% 55%;
-			flex-direction: row;
-			justify-content: start;
-
-			.ap-m-teaser-placeholder{
-				align-self: center;
-			}
-		}
-		&-name, &-header, &-copy, &-info, &-link {
-			align-self: center;
-		}
-	}
-
-
-	&-row:first-of-type {
-		border-top: 1px solid rgba(0,0,0,0.05);
-	}
-
 	&-name {
 		background: none;
 		display: flex;
@@ -125,20 +135,23 @@
 		}
 	}
 
-	&-name:hover {
-		background-color: color('wild-sand');
-	}
-
 	@media (min-width: 768px) {
 		&-name {
 			padding-top: 0;
 			width: 100%;
     	padding-left: 35px;
 		}
+
 	}
 
 	&-info {
 		padding: 11px 0;
+
+		.ap-m-table-component-used-components {
+			code {
+				color: color('charade');
+			}
+		}
 	}
 
 	&-headline {
@@ -153,11 +166,7 @@
 		display: block;
 		line-height: 1.6em;
 		margin: 0;
-	}
-
-	&-used-components {
-		.code-example code {
-			color: color('charade');
-		}
+		color: color('river-bed');
+		font-weight: normal;
 	}
 }

@@ -1,0 +1,100 @@
+/*
+
+#####################################
+### MOLECULE: guides and totorial teaser on get started page ###
+#####################################
+
+
+*/
+
+@import '../../extends';
+@import '../../functions';
+@import '../../mixins';
+@import '../../variables';
+
+@import '../atoms/_color';
+
+.#{utility('teaser-guides')} {
+	padding: 35px 0;
+	grid-column: 3 / 23;
+}
+
+.#{molecule('teaser-guides')} {
+
+	.ap-m-teaser-container {
+		display: grid;
+		grid-template-columns: repeat(12, 1fr);
+		grid-column-gap: 30px;
+		width: 100%;
+	}
+
+	.ap-m-teaser {
+		position: relative;
+		grid-column: span 12;
+		min-height: 315px;
+		margin: 16px 0;
+		border: solid 1px #e8e8e8;
+		background-color: color('white');
+		transform: translate3d(0,0,0);
+		transition: transform .3s cubic-bezier(.25,.1,.25,1), box-shadow .3s cubic-bezier(.25,.1,.25,1);
+
+		&--highlighted {
+			box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.15);
+		}
+
+		&:hover {
+			transform: translate3d(0,-2px,0);
+			box-shadow: 0 25px 60px 0 rgba(0,0,0,.1);
+		}
+
+		@media (min-width: 600px) {
+			grid-column: span 6;
+		}
+
+		@media (min-width: 1024px) {
+			grid-column: span 4 ;
+		}
+
+		&-tags {
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: flex;
+			flex-direction: row;
+			justify-content: flex-end;
+			width: 100%;
+
+			.ap-m-tag {
+				min-width: 26px;
+				padding: 4px 0;
+
+				&-websites {
+					@include gradient-websites;
+				}
+				&-stories {
+					@include gradient-stories;
+				}
+				&-ads {
+					@include gradient-ads;
+				}
+				&-emails {
+					@include gradient-e-mails;
+				}
+			}
+		}
+		&-placeholder {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 157px;
+			background-color: color('river-bed');
+		}
+		&-icon {
+			max-width: 108px;
+			fill: color('white');
+		}
+		&-content {
+			padding: 0 20px;
+		}
+	}
+}

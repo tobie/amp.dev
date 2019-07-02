@@ -49,13 +49,13 @@ teaser:
       {% do doc.styles.addCssFile('css/components/organisms/teaser-grid.css') %}
       {% do doc.styles.addCssFile('/css/components/molecules/table-component.css') %}
 
-      <div class="ap-m-table-component-container">
-        <div class="ap-m-table-component-navigation">
-        {% for category, docs in categories %}
-          <a href="#{{category}}">{{ category }}</a>
-        {% endfor %}
-        </div>
+      <div class="ap-m-table-component-navigation">
+      {% for category, docs in categories %}
+        <a href="#{{category}}">{{ category }}</a>
+      {% endfor %}
+      </div>
 
+      <div class="ap-m-table-component-container">
       {% for category, documents in categories %}
       <h4 id="{{ category }}">{{ category }}</h4>
       <div class="ap-o-teaser-grid">
@@ -70,7 +70,7 @@ teaser:
       </div>
       <div class="ap-m-table-component">
         {% for document in documents if not document.teaser %}
-        <a href="{{ document.url.path }}">
+        <a class="ap-m-table-component-link" href="{{ document.url.path }}">
           <div class="ap-m-table-component-row">
             {% if document.formats %}
             {% do doc.styles.addCssFile('/css/components/molecules/tag.css') %}
@@ -90,7 +90,7 @@ teaser:
                 <code>{{ component }}</code>
                 {% endfor %}
                 {% else %}
-                <p>No component is used</p>
+                <p> </p>
                 {% endif %}
               </div>
             </div>

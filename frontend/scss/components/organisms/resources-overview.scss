@@ -79,19 +79,19 @@
           fill: color('black');
         }
 
-        &-websites.ap-format-toggle-button-selected, &-websites:hover {
+        &-websites.active, &-websites:hover {
           @include gradient-websites; color: color('white');
           .#{atom('ico')} { fill: color('white'); }
         }
-        &-stories.ap-format-toggle-button-selected, &-stories:hover  {
+        &-stories.active, &-stories:hover  {
           @include gradient-stories; color: color('pigment-indigo');
           .#{atom('ico')} { fill: color('pigment-indigo'); }
         }
-        &-ads.ap-format-toggle-button-selected, &-ads:hover  {
+        &-ads.active, &-ads:hover  {
           @include gradient-ads; color: color('white');
           .#{atom('ico')} { fill: color('white'); }
         }
-        &-email.ap-format-toggle-button-selected, &-email:hover  {
+        &-email.active, &-email:hover  {
           @include gradient-e-mails; color: color('ultramarine');
           .#{atom('ico')} { fill: color('ultramarine'); }
         }

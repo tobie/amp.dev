@@ -1,7 +1,7 @@
 /*
 
 #############################
-### ORGANISM: code-grid ########
+### ORGANISM: resources-grid ########
 #############################
 
 */
@@ -56,5 +56,10 @@
     &-headline {
       color: color('blue-ribbon');
     }
+  }
+
+  &-card.ap-o-card-grid-card-tip {
+    background-color: transparent;
+    box-shadow: none;
   }
 }

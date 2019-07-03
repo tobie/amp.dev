@@ -71,6 +71,10 @@
           height: 36px;
         }
 
+        span {
+          text-transform: capitalize;
+        }
+
         .#{atom('ico')} {
           width: 14px;
           height: 14px;

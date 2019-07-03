@@ -137,7 +137,7 @@ resources_cards:
               </div>
               <div class="ap-format-toggle">
                 {% for format in doc.resources_formats %}
-                <button class="ap-format-toggle-button ap-format-toggle-button-{{ format }}"
+                <button class="ap-format-toggle-button ap-format-toggle-button-{{ format }} {{'active' if format == 'websites' }}"
                   [class]="chosenFormat.activeFormat == '{{ format }}' ? 'ap-format-toggle-button ap-format-toggle-button-{{ format }} active' : 'ap-format-toggle-button ap-format-toggle-button-{{ format }}'"
                   on="tap:AMP.setState({chosenFormat: {activeFormat: '{{ format }}'}})">
                   <span class="ap-a-ico">

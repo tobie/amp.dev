@@ -34,7 +34,11 @@
   }
 
   .#{utility('section')} {
-    grid-column: 3 / 23;
+    grid-column: 2 / 23;
+
+    @media (min-width: 600px) {
+      grid-column: 3 / 23;
+    }
 
     &--fullscreen {
       grid-column: 1 / 25;

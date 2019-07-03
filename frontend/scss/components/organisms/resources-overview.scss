@@ -21,16 +21,20 @@
 
 }
 .#{organism('resources-overview')} {
-  margin: 15% 0 5% 0;
-  padding: 3% 8.32%;
+  margin: 11em 0 5% 0;
+  padding: 3% 4.16%;
+
+  @media (min-width: 768px) {
+    padding: 3% 8.32%;
+  }
 
   .ap-info-box {
     display: flex;
     flex-direction: column;
     min-height: 200px;
-    margin-top: -10%;
-    margin-bottom: 7%;
-    padding: 32px;
+    margin-top: -7.5em;
+    margin-bottom: 4em;
+    padding: 20px 32px;
     border-radius: 5px;
     background-color: color('white');
     box-shadow: 6px 9px 40px 0 rgba(0, 0, 0, 0.15);
@@ -38,7 +42,7 @@
     @media (min-width: 768px) {
       flex-direction: row;
       width: 100%;
-      max-width: 750px;
+      max-width: 720px;
     }
 
     &-text {
@@ -48,13 +52,18 @@
     .ap-format-toggle {
       display: flex;
       flex-direction: column;
+      margin-top: .75em;
+
+      @media (min-width: 600px) {
+        margin-top: 0;
+      }
 
       &-button {
         display: flex;
         align-items: center;
-        height: 46px;
+        height: 35px;
         min-width: 256px;
-        margin: 9px 0 0 0;
+        margin: 4px 0 ;
         padding: 5px 8px;
         @include txt;
         @include txt-font-accent;
@@ -65,19 +74,11 @@
         border-radius: 4px;
         color: color('black');
         background: color('athens-gray');
-        box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.25);
-
-        @media (min-width: 768px) {
-          height: 36px;
-        }
-
-        span {
-          text-transform: capitalize;
-        }
+        box-shadow: 0px 9px 7px -8px rgba(0, 0, 0, 0.30);
 
         .#{atom('ico')} {
-          width: 14px;
-          height: 14px;
+          width: 20px;
+          height: 20px;
           margin-right: 8px;
           fill: color('black');
         }
@@ -87,8 +88,8 @@
           .#{atom('ico')} { fill: color('white'); }
         }
         &-stories.active, &-stories:hover  {
-          @include gradient-stories; color: color('pigment-indigo');
-          .#{atom('ico')} { fill: color('pigment-indigo'); }
+          @include gradient-stories; color: color('ultramarine');
+          .#{atom('ico')} { fill: color('ultramarine'); }
         }
         &-ads.active, &-ads:hover  {
           @include gradient-ads; color: color('white');
@@ -104,14 +105,14 @@
 
   &-websites {
     @include gradient-websites;
-    h2 {
+    .ap--resources-grid h2 {
       color: color('white');
     }
   }
   &-stories {
     @include gradient-stories;
     .ap--resources-grid h2 {
-      color: color('pigment-indigo');
+      color: color('ultramarine');
     }
   }
   &-ads {

@@ -61,7 +61,14 @@
   &-card.ap-o-card-grid-card-tip {
     background-color: transparent;
     box-shadow: none;
-    padding: 0 22.5px;
-    margin: auto 0 10px 0;
+    padding: 0;
+    margin: 10px 0 10px 0;
+
+    @media (min-width: 768px) {
+      margin: auto 0 10px 0;
+    }
+    @media (min-width: 1024px) {
+      padding: 0 22.5px;
+    }
   }
 }

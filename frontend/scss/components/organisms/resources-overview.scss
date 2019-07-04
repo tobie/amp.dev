@@ -1,0 +1,167 @@
+/*
+
+#############################
+### ORGANISM: code-grid ########
+#############################
+
+*/
+
+
+@import '_extends.scss';
+@import '_functions.scss';
+@import '_mixins.scss';
+@import '_variables.scss';
+
+@import 'components/atoms/_color.scss';
+@import 'components/atoms/_headline.scss';
+@import 'components/atoms/_text.scss';
+
+.#{utility('resources-overview')} {
+  grid-column: 1 / 23;
+
+}
+.#{organism('resources-overview')} {
+  position: relative;
+  margin: 11em 0 5% 0;
+  padding: 3% 4.16%;
+
+  @media (min-width: 768px) {
+    padding: 3% 8.32%;
+  }
+
+  .ap-format-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    will-change: opacity;
+    transition: opacity .8s cubic-bezier(.25,.1,.25,1);
+
+    &.active {
+      opacity: 1;
+    }
+
+    &-websites {
+      opacity: 1;
+      @include gradient-websites;
+      .ap--resources-grid h2 {
+        color: color('white');
+      }
+    }
+    &-stories {
+      @include gradient-stories;
+      .ap--resources-grid h2 {
+        color: color('ultramarine');
+      }
+    }
+    &-ads {
+      @include gradient-ads;
+      .ap--resources-grid h2 {
+        color: color('white');
+      }
+    }
+    &-email {
+      @include gradient-e-mails;
+      .ap--resources-grid h2 {
+        color: color('ultramarine');
+      }
+    }
+  }
+
+  &-websites .ap--resources-grid h2,
+  &-ads .ap--resources-grid h2 {
+    transition: color .3s cubic-bezier(.25, .1, .25, 1);
+    color: color('white');
+  }
+  &-email .ap--resources-grid h2,
+  &-stories .ap--resources-grid h2 {
+    transition: color .3s cubic-bezier(.25, .1, .25, 1);
+    color: color('ultramarine');
+  }
+  .ap-format-content {
+    position: relative;
+
+    .ap-info-box {
+      display: flex;
+      flex-direction: column;
+      min-height: 200px;
+      margin-top: -7.5em;
+      margin-bottom: 4em;
+      padding: 20px 32px;
+      border-radius: 5px;
+      background-color: color('white');
+      box-shadow: 6px 9px 40px 0 rgba(0, 0, 0, 0.15);
+
+      @media (min-width: 600px) {
+        flex-direction: row;
+        width: 100%;
+        max-width: 720px;
+      }
+
+      &-text {
+        margin-right: 30px;
+      }
+
+      .ap-format-toggle {
+        display: flex;
+        flex-direction: column;
+        margin: .75em 0 0 0;
+
+        @media (min-width: 600px) {
+          margin: auto 0;
+        }
+
+        &-button {
+          display: flex;
+          align-items: center;
+          height: 35px;
+          width: 258px;
+          margin: 4px 0 ;
+          padding: 5px 8px;
+          @include txt;
+          @include txt-font-accent;
+          text-align: left;
+          font-size: 12px;
+          outline: none;
+          border: none;
+          border-radius: 4px;
+          color: color('black');
+          background: color('athens-gray');
+          transition: transform .3s cubic-bezier(.25,.1,.25,1), box-shadow .3s cubic-bezier(.25,.1,.25,1);
+
+          .#{atom('ico')} {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+            fill: color('black');
+          }
+
+          &:hover {
+            transform: translateY(-1px);
+            box-shadow: 0px 9px 7px -8px rgba(0, 0, 0, 0.30);
+          }
+
+          &-websites.active, &-websites:hover {
+            box-shadow: 0px 9px 7px -8px rgba(0, 0, 0, 0.30);
+            @include gradient-websites; color: color('white');
+            .#{atom('ico')} { fill: color('white'); }
+          }
+          &-stories.active, &-stories:hover  {
+            @include gradient-stories; color: color('ultramarine');
+            .#{atom('ico')} { fill: color('ultramarine'); }
+          }
+          &-ads.active, &-ads:hover  {
+            @include gradient-ads; color: color('white');
+            .#{atom('ico')} { fill: color('white'); }
+          }
+          &-email.active, &-email:hover  {
+            @include gradient-e-mails; color: color('ultramarine');
+            .#{atom('ico')} { fill: color('ultramarine'); }
+          }
+        }
+      }
+    }
+  }
+}

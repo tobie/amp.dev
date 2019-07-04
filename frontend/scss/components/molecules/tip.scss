@@ -83,17 +83,18 @@ $borderSize: 5px;
 
   &-default {
     border-right: $borderSize solid color('malachite');
-    border-radius: 0 $borderSize $borderSize 0;
+    border-radius: $borderSize;
     word-break: break-word;
-    margin: 50px 0 0 0;
+    margin: 0 0 20px 0;
 
-    &:before {
+    &:after {
       @extend %pseudo-base;
-      left: 0;
-      bottom: 100%;
+      left: 47.5%;
+      bottom: -10px;
       border-bottom: ($cornerSize/1.6) solid white;
       border-right: ($cornerSize/1.6) solid transparent;
       border-left: 0 solid white;
+      transform: rotateZ(-45deg);
     }
   }
 

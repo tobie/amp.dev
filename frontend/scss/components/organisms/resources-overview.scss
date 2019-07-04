@@ -72,12 +72,12 @@
 
   &-websites .ap--resources-grid h2,
   &-ads .ap--resources-grid h2 {
-    transition: opacity 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+    transition: color .4s cubic-bezier(0.25, 0.1, 0.25, 1);
     color: color('white');
   }
   &-email .ap--resources-grid h2,
   &-stories .ap--resources-grid h2 {
-    transition: opacity 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+    transition: color .4s cubic-bezier(0.25, 0.1, 0.25, 1);
     color: color('ultramarine');
   }
   .ap-format-content {

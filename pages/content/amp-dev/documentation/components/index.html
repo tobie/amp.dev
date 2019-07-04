@@ -144,8 +144,8 @@ highlight_teaser:
             {% endfor %}
           </div>
         </div>
-      <section>
-
+      </section>
+      <section class="ap-m-table-component-container">
       <h2>Categories</h2>
       {% set components = g.categories('/content/amp-dev/documentation/components/reference', locale=doc.locale) %}
       {% do doc.styles.addCssFile('/css/components/molecules/table-component.css') %}
@@ -157,7 +157,7 @@ highlight_teaser:
       </div>
 
       {% for category, docs in components %}
-      <div class="ap-m-table-component-container">
+
         <h4 id="{{ category }}">{{ category }}</h4>
         <div class="ap-m-table-components">
           {% for component in docs %}
@@ -184,7 +184,7 @@ highlight_teaser:
           {% endfor %}
           {% endfor %}
         </div>
-      </div>
+      </section>
     </section>
   </div>
 </main>

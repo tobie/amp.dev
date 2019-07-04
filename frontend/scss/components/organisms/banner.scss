@@ -15,7 +15,8 @@
 @import 'components/atoms/_text.scss';
 
 .#{utility('banner')} {
-  padding: 60px 8.32%;
+  margin-top: 5em;
+  padding: 4em 8.32% 6.5em 8.32%;
   background-color: color('blue-ribbon');
 }
 

@@ -37,7 +37,7 @@
     height: 100%;
     opacity: 0;
     will-change: opacity;
-    transition: opacity 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+    transition: opacity .8s cubic-bezier(.25,.1,.25,1);
 
     &.active {
       opacity: 1;
@@ -72,12 +72,12 @@
 
   &-websites .ap--resources-grid h2,
   &-ads .ap--resources-grid h2 {
-    transition: color .4s cubic-bezier(0.25, 0.1, 0.25, 1);
+    transition: color .3s cubic-bezier(.25, .1, .25, 1);
     color: color('white');
   }
   &-email .ap--resources-grid h2,
   &-stories .ap--resources-grid h2 {
-    transition: color .4s cubic-bezier(0.25, 0.1, 0.25, 1);
+    transition: color .3s cubic-bezier(.25, .1, .25, 1);
     color: color('ultramarine');
   }
   .ap-format-content {
@@ -129,7 +129,7 @@
           border-radius: 4px;
           color: color('black');
           background: color('athens-gray');
-          box-shadow: 0px 9px 7px -8px rgba(0, 0, 0, 0.30);
+          transition: transform .3s cubic-bezier(.25,.1,.25,1), box-shadow .3s cubic-bezier(.25,.1,.25,1);
 
           .#{atom('ico')} {
             width: 20px;
@@ -138,7 +138,13 @@
             fill: color('black');
           }
 
+          &:hover {
+            transform: translateY(-1px);
+            box-shadow: 0px 9px 7px -8px rgba(0, 0, 0, 0.30);
+          }
+
           &-websites.active, &-websites:hover {
+            box-shadow: 0px 9px 7px -8px rgba(0, 0, 0, 0.30);
             @include gradient-websites; color: color('white');
             .#{atom('ico')} { fill: color('white'); }
           }

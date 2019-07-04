@@ -19,26 +19,26 @@ format_cards:
     description: Create flawless wesbites. Compelling, smooth and instant.
     type: websites
     link:
-      text: Build your AMP Websites
-      url: url
+        text: Build your AMP Websites
+        url: /content/amp-dev/about/websites.html
   - title: AMP Stories
     description: Create snackable, immersive and immediate stories on your website.
     type: stories
     link:
-      text: Buil first AMP Stories
-      url: url
+        text: Buil first AMP Stories
+        url: /content/amp-dev/about/stories.html
   - title: AMP Ads
     description: Extend your website with a fast and lightweight ad experiences.
     type: ads
     link:
-      text: Buil first AMP Ads
-      url: url
+        text: Buil first AMP Ads
+        url: /content/amp-dev/about/ads.html
   - title: AMP Emails
     description: Create emails, that allow your recipients to interact dynamically with content.
     type: email
     link:
-      text: Build first AMP Emails
-      url: url
+        text: Build first AMP Emails
+        url: /content/amp-dev/about/email.html
 
 resources_formats:
   - websites
@@ -91,7 +91,7 @@ resources_cards:
         <div class="ap--format-cards">
           <div class="ap-o-format-cards">
             {% for card in doc.format_cards %}
-            <div class="ap-o-format-cards-card ap-o-format-cards-card-{{ card.type }}">
+            <a href="{{g.doc(card.link.url, locale=doc.locale).url.path}}" class="ap-o-format-cards-card ap-o-format-cards-card-{{ card.type }}">
               <div class="ap-o-format-cards-card-body">
                 <div class="ap-a-ico ap-o-format-cards-card-icon">
                   <svg>
@@ -101,7 +101,7 @@ resources_cards:
                 <h4 class="ap-o-format-cards-card-headline">{{ card.title }}</h4>
                 <p class="ap-o-format-cards-card-copy">{{ card.description }}</p>
               </div>
-              <a href="" class="ap-o-format-cards-card-link ap-m-lnk">
+              <div class="ap-o-format-cards-card-link ap-m-lnk">
                 <div class="ap-a-ico ap-m-lnk-icon">
                   {% do doc.icons.useIcon('icons/internal.svg') %}
                   <svg>
@@ -109,8 +109,8 @@ resources_cards:
                   </svg>
                 </div>
                 <span class="ap-m-lnk-text">{{ card.link.text }}</span>
-              </a>
-            </div>
+              </div>
+            </a>
             {% endfor %}
           </div>
         </div>

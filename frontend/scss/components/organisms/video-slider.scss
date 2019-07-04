@@ -16,7 +16,7 @@
 @import 'components/atoms/_text.scss';
 
 .#{utility('video-slider')} {
-
+  margin-top: 6em;
 }
 .#{organism('video-slider')} {
   &-text {

@@ -17,24 +17,28 @@
 @import 'components/atoms/_color.scss';
 
 .#{molecule('table-component')} {
-
 	margin-bottom: 59px;
 
-	h4 {
-		margin-bottom: 18px;
+	&-container {
+		background-color: color('white');
+		h4 {
+			margin-bottom: 18px;
+		}
 	}
+
 
 	&-navigation {
 		position: sticky;
 		position: -webkit-sticky;
 		top: 50px;
-		width: 100%;
-		background-color: color('whisper');
+		left: 0;
 		display: flex;
-		padding-bottom: 24px;
 		flex-wrap: wrap;
-		z-index: 15;
-		line-height: 1.6;
+		margin: 0 -60px;
+		padding: 20px 60px;
+		background-color: color('white');
+		line-height: 2;
+		z-index: 11;
 
 		a {
 			padding-right: 22px;
@@ -125,6 +129,10 @@
 		height: 100%;
 		padding-top: 10px;
 		align-items: center;
+
+		&--example:hover {
+			background-color: color('whisper');
+		}
 
 		&-title {
 			@include txt-mono;

@@ -24,14 +24,13 @@
 	.ap-m-teaser-container {
 		display: grid;
 		grid-template-columns: repeat(12, 1fr);
+		align-items: center;
 		grid-column-gap: 30px;
-		width: 100%;
 	}
 
 	.ap-m-teaser {
 		position: relative;
 		grid-column: span 12;
-		min-height: 315px;
 		margin: 16px 0;
 		border: solid 1px #e8e8e8;
 		background-color: color('white');
@@ -95,6 +94,40 @@
 		}
 		&-content {
 			padding: 0 20px;
+		}
+		.guide-tag {
+			display: inline-flex;
+			align-items: center;
+			margin-top: 33px;
+			margin-bottom: 20px;
+			padding: 4px 10px;
+			border-radius: 12px;
+			background-color: #f3f3f3;
+			&-icon {
+				fill: color('blue-ribbon');
+				margin-right:10px;
+
+				&--glasses {
+					display: flex;
+					font-size: initial;
+			    box-sizing: initial;
+			    justify-content: center;
+					height: 14px;
+					width: 14px;
+				}
+				&--guide {
+					display: flex;
+					font-size: initial;
+			    box-sizing: initial;
+			    justify-content: center;
+					height: 17px;
+					width: 15px;
+				}
+			}
+			&-text {
+				font-weight: bold;
+				font-size: 10px;
+			}
 		}
 	}
 }

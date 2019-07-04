@@ -1,0 +1,42 @@
+/*
+
+#####################################
+### MOLECULE: guides and totorial teaser on get started page ###
+#####################################
+
+
+*/
+
+@import '../../extends';
+@import '../../functions';
+@import '../../mixins';
+@import '../../variables';
+
+@import '../atoms/_color';
+
+.#{molecule('teaser-playground')} {
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 0 -60px;
+	padding: 0 60px;
+	background-color: color('whisper');
+
+	&-text {
+		width: 35%;
+		display: flex;
+		flex-direction: column;
+		align-content: center;
+
+		h2 {
+			margin-bottom: 11px;
+		}
+		p {
+			margin: 0 0 10px;
+		}
+	}
+	&-image {
+		width: 55%;
+	}
+}

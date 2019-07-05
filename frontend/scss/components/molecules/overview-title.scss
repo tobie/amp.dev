@@ -16,4 +16,13 @@
 
 .#{molecule('overview-title')} {
   max-width: 870px;
+  margin-top: 1.5em;
+
+  @media (min-width: 600px) {
+    margin-top: 3em;
+  }
+
+  h1 {
+    margin-top: 0;
+  }
 }

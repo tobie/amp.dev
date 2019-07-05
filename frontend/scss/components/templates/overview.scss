@@ -26,11 +26,10 @@
   }
 
   .#{utility('content')} {
-    width: 100%;
-    grid-column: 1 / 25;
-    background-color: white;
     display: grid;
+    grid-column: 1 / 25;
     grid-template-columns: repeat(24, 1fr);
+    width: 100%;
     box-shadow: 0 25px 40px 0 rgba(0,0,0,0.05);
     background-color: color('white');
   }

@@ -70,6 +70,7 @@
 			border: solid 1px #e8e8e8;
 			margin-bottom: 20px;
 			grid-column: span 4;
+			transition: transform .3s cubic-bezier(.25,.1,.25,1), box-shadow .3s cubic-bezier(.25,.1,.25,1);
 
 			&:hover {
 				transform: translate3d(0,-2px,0);

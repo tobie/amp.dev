@@ -22,7 +22,7 @@
 }
 .#{organism('resources-overview')} {
   position: relative;
-  margin: 11em 0 5% 0;
+  margin: 11em 0 0 0;
   padding: 3% 4.16%;
 
   @media (min-width: 768px) {
@@ -138,13 +138,12 @@
             fill: color('black');
           }
 
-          &:hover {
+          &:hover, &-websites.active, &-stories.active, &-ads.active, &-email.active {
             transform: translateY(-1px);
             box-shadow: 0px 9px 7px -8px rgba(0, 0, 0, 0.30);
           }
 
           &-websites.active, &-websites:hover {
-            box-shadow: 0px 9px 7px -8px rgba(0, 0, 0, 0.30);
             @include gradient-websites; color: color('white');
             .#{atom('ico')} { fill: color('white'); }
           }

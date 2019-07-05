@@ -34,6 +34,13 @@
 	}
 
 	.#{molecule('teaser')} {
+		&-container {
+			display: grid;
+			grid-column-gap: 30px;
+			grid-template-columns: repeat(12, 1fr);
+			align-items: stretch;
+			margin-top: 20px;
+		}
 		&-tags {
 			font-size: 0;
 			position: absolute;
@@ -55,6 +62,26 @@
 			&-title {
 				@include teaser-header-title;
         font-weight: bold;
+			}
+		}
+
+		&--code {
+			box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.15);
+			border: solid 1px #e8e8e8;
+			margin-bottom: 20px;
+			grid-column: span 4;
+
+			&:hover {
+				transform: translate3d(0,-2px,0);
+				box-shadow: 0 25px 60px 0 rgba(0,0,0,.1);
+			}
+			code {
+				font-size: 1.125em;
+				font-weight: bold;
+			}
+
+			p {
+				font-size: 0.75em;
 			}
 		}
 

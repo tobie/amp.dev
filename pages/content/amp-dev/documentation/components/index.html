@@ -22,32 +22,30 @@ teaser:
 
 
 highlight_teaser:
-  - title: Make your page discoverable
-    description: "Tips for linking AMP pages and using metadata"
+  - title: amp-bodymovin
+    description: A container to display an ad.
     url: /about/ads.html
     tags:
     - websites
-    - stories
-    - ads
-    - emails
+    - email
 
-  - title: Google Search guidelines for AMP pages
-    description: "Tips for linking AMP pages and using metadata"
+  - title: amp-fx-flying-carpet
+    description: Wraps its children in a unique full-screen scrolling container allowing you to display a...
     url: /about/ads.html
     tags:
     - websites
     - stories
     - ads
-    - emails
+    - email
 
-  - title: Testing CORS in AMP
-    description: Find instructions for validation your AMP pages
+  - title: amp-fx-collection
+    description: Provides a collection of preset visual effects, such as parallax.
     url: /about/ads.html
     tags:
     - websites
     - stories
     - ads
-    - emails
+    - email
 ---
 {% do doc.styles.addCssFile('/css/components/templates/component-overview.css') %}
 
@@ -109,42 +107,33 @@ highlight_teaser:
 
       <hr>
 
-      {% do doc.styles.addCssFile('css/components/molecules/teaser-guides.css') %}
+      {% do doc.styles.addCssFile('css/components/molecules/teaser-component.css') %}
       <section class="ap--section">
-        <div class="ap-m-teaser-guides">
+        <h2>Highlighted Components</h2>
+        <div class="ap-m-teaser-component">
           <div class="ap-m-teaser-container">
             {% for teaser in doc.highlight_teaser %}
-            <div class="ap-m-teaser ap-m-teaser--highlighted">
-              <div class="ap-m-teaser-tags">
-                {% for tag in teaser.tags %}
-                <div class="ap-m-tag ap-m-tag-{{ tag }}"></div>
-                {% endfor %}
-              </div>
-              <div class="ap-m-teaser-placeholder">
-                <svg class="ap-m-teaser-icon">
-                  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#amp-websites"></use>
-                </svg>
-              </div>
-              <div class="ap-m-teaser-content">
-                <div class="ap-m-teaser-content-text">
-                  <h4>{{ teaser.title }}</h4>
-                  <p>{{ teaser.description }}</p>
+            <div class="ap-m-teaser ap-m-teaser--code">
+              <div class="ap-m-teaser-card">
+                <div class="ap-m-teaser-tags">
+                  {% for tag in teaser.tags %}
+                  <div class="ap-m-tag ap-m-tag-{{ tag }}"></div>
+                  {% endfor %}
                 </div>
-                <a href="" class="ap-m-teaser-link ap-m-lnk">
-                  <div class="ap-a-ico ap-m-lnk-icon">
-                    {% do doc.icons.useIcon('icons/internal.svg') %}
-                    <svg>
-                      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#internal"></use>
-                    </svg>
+                <div class="ap-m-teaser-content">
+                  <div class="ap-m-teaser-content-text">
+                    <code><span>{{ teaser.title }}</span></code>
+                    <p>{{ teaser.description }}</p>
                   </div>
-                  <span class="ap-m-lnk-text">Learn more</span>
-                </a>
+                </div>
               </div>
             </div>
             {% endfor %}
           </div>
         </div>
       </section>
+
+
       <section class="ap-m-table-component-container">
       <h2>Categories</h2>
       {% set components = g.categories('/content/amp-dev/documentation/components/reference', locale=doc.locale) %}

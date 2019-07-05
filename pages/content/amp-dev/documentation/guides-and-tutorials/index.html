@@ -38,16 +38,6 @@ highlight_guides:
       src: /static/img/teaser-placeholder-5x3.jpg
       alt: This is a placeholder image
 
-  - title: Testing CORS in AMP
-    description: The fastest way to learn is to peak over the tangible examples.
-    url: /documentation/guides-and-tutorials/learn/amp-html-layout/?format=websites
-    tags:
-    - websites
-    - stories
-    - ads
-    icon: guide
-    tagName: Guide
-
   - title: Create an AMPHTML ad
     description: Tips for linking AMP pages and using metadataTips for linking AMP pages and using metadata
     url: /documentation/guides-and-tutorials/learn/amp-html-layout.html
@@ -61,6 +51,16 @@ highlight_guides:
     image:
       src: /static/img/teaser-placeholder-5x3.jpg
       alt: This is a placeholder image
+
+  - title: Testing CORS in AMP
+    description: The fastest way to learn is to peak over the tangible examples.
+    url: /documentation/guides-and-tutorials/learn/amp-html-layout/?format=websites
+    tags:
+    - websites
+    - stories
+    - ads
+    icon: guide
+    tagName: Guide
 
   - title: Google Search guidelines for AMP pages
     description: The fastest way to learn is to peak over the tangible examples.
@@ -231,13 +231,13 @@ recent_guides:
     </a>
   </div>
   <div class="ap-o-card-grid-card">
-    <div class="ap-a-ico ap-o-card-grid-card-icon">
+    <div class="ap-a-ico ap-o-card-grid-card-icon ap-o-card-grid-card-icon-emails">
       {% do doc.icons.useIcon('/icons/optimize.svg') %}
       <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#optimize"></use></svg>
     </div>
     <h4 class="ap-o-card-grid-card-headline">Optimize & Measure</h4>
     <p class="ap-o-card-grid-card-copy">Make more out of your AMP pages through analytics, optimal delivery and caching.</p>
-    <a href="{{g.doc('/content/amp-dev/documentation/guides-and-tutorials/integrate/integrate-with-apps.md', locale=doc.locale).url.path}}"
+    <a href="{{g.doc('/content/amp-dev/documentation/guides-and-tutorials/optimize-measure/configure-analytics/index.md', locale=doc.locale).url.path}}"
       class="ap-m-lnk">
       <div class="ap-a-ico ap-m-lnk-icon">
         {% do doc.icons.useIcon('icons/internal.svg') %}
@@ -254,37 +254,45 @@ recent_guides:
     <h2>Highlighted Guides & Tutorials</h2>
     <div class="ap-m-teaser-container">
       {% for guide in doc.highlight_guides %}
-      <div class="ap-m-teaser ap-m-teaser--highlighted">
-        <div class="ap-m-teaser-tags">
-          {% for tag in guide.tags %}
-          <div class="ap-m-tag ap-m-tag-{{ tag }}"></div>
-          {% endfor %}
-        </div>
-        {% if guide.image %}
-        <div class="ap-a-img ap-m-teaser-image">
-          <amp-img class="ap--media" src="{{ guide.image.src }}" layout="responsive" width="2.3" height="1" alt="{{ guide.image.alt }}"></amp-img>
-        </div>
+      {% if loop.index is odd %}
+      <div class="ap-m-teaser ap-m-teaser-column-box">
         {% endif %}
-        <div class="ap-m-teaser-content">
-          <div class="ap-m-teaser-content-text">
-            <h4>{{ guide.title }}</h4>
-            <p>{{ guide.description }}</p>
-          </div>
-          <div class="guide-tag">
-            <div class="guide-tag-icon guide-tag-icon--{{ guide.icon }}" >
-              {% if guide.icon == "guide" %}
-              {% do doc.icons.useIcon('icons/guide.svg') %}
-              {% else %}
-              {% do doc.icons.useIcon('icons/glasses.svg') %}
-              {% endif %}
-              <svg>
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#{{guide.icon}}"></use>
-              </svg>
+        <div class="ap-m-teaser--highlighted">
+          <div class="ap-m-teaser-double-teaser">
+            <div class="ap-m-teaser-tags">
+              {% for tag in guide.tags %}
+              <div class="ap-m-tag ap-m-tag-{{ tag }}"></div>
+              {% endfor %}
             </div>
-            <span class="guide-tag-text">{{ guide.tagName }}</span>
+            {% if guide.image %}
+            <div class="ap-a-img ap-m-teaser-image">
+              <amp-img class="ap--media" src="{{ guide.image.src }}" layout="responsive" width="2.3" height="1" alt="{{ guide.image.alt }}"></amp-img>
+            </div>
+            {% endif %}
+            <div class="ap-m-teaser-content">
+              <div class="ap-m-teaser-content-text">
+                <h4>{{ guide.title }}</h4>
+                <p>{{ guide.description }}</p>
+              </div>
+              <div class="guide-tag">
+                <div class="guide-tag-icon guide-tag-icon--{{ guide.icon }}" >
+                  {% if guide.icon == "guide" %}
+                  {% do doc.icons.useIcon('icons/guide.svg') %}
+                  {% else %}
+                  {% do doc.icons.useIcon('icons/glasses.svg') %}
+                  {% endif %}
+                  <svg>
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#{{guide.icon}}"></use>
+                  </svg>
+                </div>
+                <span class="guide-tag-text">{{ guide.tagName }}</span>
+              </div>
+            </div>
           </div>
         </div>
+        {% if loop.index is even %}
       </div>
+      {% endif %}
       {% endfor %}
     </div>
   </div>
@@ -297,37 +305,45 @@ recent_guides:
     <h2>Recent Guides & Tutorials</h2>
     <div class="ap-m-teaser-container">
       {% for guide in doc.recent_guides %}
-      <div class="ap-m-teaser ap-m-teaser--highlighted">
-        <div class="ap-m-teaser-tags">
-          {% for tag in guide.tags %}
-          <div class="ap-m-tag ap-m-tag-{{ tag }}"></div>
-          {% endfor %}
-        </div>
-        {% if guide.image %}
-        <div class="ap-a-img ap-m-teaser-image">
-          <amp-img class="ap--media" src="{{ guide.image.src }}" layout="responsive" width="2.3" height="1" alt="{{ guide.image.alt }}"></amp-img>
-        </div>
+      {% if loop.index is odd %}
+      <div class="ap-m-teaser ap-m-teaser-column-box">
         {% endif %}
-        <div class="ap-m-teaser-content">
-          <div class="ap-m-teaser-content-text">
-            <h4>{{ guide.title }}</h4>
-            <p>{{ guide.description }}</p>
-          </div>
-          <div class="guide-tag">
-            <div class="guide-tag-icon guide-tag-icon--{{ guide.icon }}" >
-              {% if guide.icon == "guide" %}
-              {% do doc.icons.useIcon('icons/guide.svg') %}
-              {% else %}
-              {% do doc.icons.useIcon('icons/glasses.svg') %}
-              {% endif %}
-              <svg>
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#{{guide.icon}}"></use>
-              </svg>
+        <div class="ap-m-teaser--highlighted">
+          <div class="ap-m-teaser-double-teaser">
+            <div class="ap-m-teaser-tags">
+              {% for tag in guide.tags %}
+              <div class="ap-m-tag ap-m-tag-{{ tag }}"></div>
+              {% endfor %}
             </div>
-            <span class="guide-tag-text">{{ guide.tagName }}</span>
+            {% if guide.image %}
+            <div class="ap-a-img ap-m-teaser-image">
+              <amp-img class="ap--media" src="{{ guide.image.src }}" layout="responsive" width="2.3" height="1" alt="{{ guide.image.alt }}"></amp-img>
+            </div>
+            {% endif %}
+            <div class="ap-m-teaser-content">
+              <div class="ap-m-teaser-content-text">
+                <h4>{{ guide.title }}</h4>
+                <p>{{ guide.description }}</p>
+              </div>
+              <div class="guide-tag">
+                <div class="guide-tag-icon guide-tag-icon--{{ guide.icon }}" >
+                  {% if guide.icon == "guide" %}
+                  {% do doc.icons.useIcon('icons/guide.svg') %}
+                  {% else %}
+                  {% do doc.icons.useIcon('icons/glasses.svg') %}
+                  {% endif %}
+                  <svg>
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#{{guide.icon}}"></use>
+                  </svg>
+                </div>
+                <span class="guide-tag-text">{{ guide.tagName }}</span>
+              </div>
+            </div>
           </div>
         </div>
+        {% if loop.index is even %}
       </div>
+      {% endif %}
       {% endfor %}
     </div>
   </div>

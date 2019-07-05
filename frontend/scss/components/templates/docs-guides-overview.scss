@@ -29,6 +29,10 @@
   background-position: top right;
   background-attachment: fixed;
 
+  .#{utility('sidebar')} {
+    @include sidebar;
+  }
+
   .#{utility('container')} {
     @include container;
     @include container-nogap;
@@ -63,7 +67,10 @@
 
   section {
     &.#{utility('content')} {
-      @include content-white-bg;
+      padding-left: 60px;
+      padding-right: 60px;
+      background-color: color('white');
+      box-shadow: 0 25px 40px 0 rgba(0,0,0,0.05);
     }
   }
 }

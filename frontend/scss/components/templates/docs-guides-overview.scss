@@ -51,26 +51,18 @@
     h1, h2 {
       margin-bottom: .5em;
     }
-
-    @media (min-width: 930px) {
-      .ap-m-breadcrumbs {
-        margin-left: 60px;
-      }
-    }
-  }
-
-  .#{utility('section')} {
-    @media (min-width: 930px) {
-      margin: 0 60px;
-    }
   }
 
   section {
     &.#{utility('content')} {
-      padding-left: 60px;
-      padding-right: 60px;
+      padding: 60px;
       background-color: color('white');
       box-shadow: 0 25px 40px 0 rgba(0,0,0,0.05);
+    }
+  }
+  .#{utility('card-grid')} {
+    @media (min-width: 930px) {
+      padding: 40px 30px 90px;
     }
   }
 }

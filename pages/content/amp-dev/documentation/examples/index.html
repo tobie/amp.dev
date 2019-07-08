@@ -30,7 +30,7 @@ teaser:
     <span id="ap--sidebar-content" class="ap--sidebar"></span>
     <section class="ap--content">
       {% include '/views/partials/sidebar-toggle-button.j2' %}
-      <h1>Learn AMP by example</h1>
+      {% include '/views/partials/breadcrumbs.j2' %}
 
       <amp-state id="activeFilter">
         <script type="application/json">
@@ -40,6 +40,7 @@ teaser:
         </script>
       </amp-state>
 
+      <h1>Learn AMP by example</h1>
       <p>A hands-on introduction to AMP focusing on code and live samples. Learn how to create AMP pages and see examples for all AMP components.</p>
 
       {% do doc.styles.addCssFile('/css/components/organisms/card-grid.css') %}

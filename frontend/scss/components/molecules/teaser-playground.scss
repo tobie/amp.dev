@@ -17,17 +17,25 @@
 .#{molecule('teaser-playground')} {
 	position: relative;
 	display: flex;
+  flex-direction: column-reverse;
 	justify-content: space-between;
 	align-items: center;
 	margin: 0 -60px;
 	padding: 0 60px;
 	background-color: color('whisper');
 
+  @media (min-width: 930px) {
+    flex-direction: row;
+  }
+
 	&-text {
-		width: 35%;
 		display: flex;
 		flex-direction: column;
 		align-content: center;
+
+    @media (min-width: 930px) {
+      width: 33%;
+    }
 
 		h2 {
 			margin-bottom: 11px;

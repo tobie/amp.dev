@@ -1,0 +1,140 @@
+/*
+
+#####################################
+### MOLECULE: guides and totorial highlight and recent teaser on guides and tutorial site ###
+#####################################
+
+
+*/
+
+@import '../../extends';
+@import '../../functions';
+@import '../../mixins';
+@import '../../variables';
+
+@import '../atoms/_color';
+
+.#{utility('teaser-highlight-guides')} {
+	padding: 35px 0;
+	grid-column: 3 / 23;
+}
+
+.#{molecule('teaser-highlight-guides')} {
+
+	.ap-m-teaser-container {
+		display: grid;
+		grid-template-columns: repeat(12, 1fr);
+		align-items: start;
+		grid-column-gap: 30px;
+	}
+
+	.ap-m-teaser {
+		position: relative;
+		grid-column: span 12;
+		background-color: color('white');
+		transform: translate3d(0,0,0);
+		margin: 0;
+		transition: transform .3s cubic-bezier(.25,.1,.25,1), box-shadow .3s cubic-bezier(.25,.1,.25,1);
+
+		&--highlighted {
+			box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.15);
+			border: solid 1px #e8e8e8;
+			margin-bottom: 20px;
+
+			&:hover {
+				transform: translate3d(0,-2px,0);
+				box-shadow: 0 25px 60px 0 rgba(0,0,0,.1);
+			}
+		}
+
+		&--highlighted:nth-of-type(2){
+			position: relative;
+		}
+
+		@media (min-width: 1024px) {
+			grid-column: span 4;
+			margin: 16px 0;
+		}
+
+		&-double-teaser {
+			margin-bottom: 20px;
+		}
+
+		&-tags {
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: flex;
+			flex-direction: row;
+			justify-content: flex-end;
+			width: 100%;
+			z-index: 1;
+
+			.ap-m-tag {
+				min-width: 26px;
+				padding: 4px 0;
+
+				&-websites {
+					@include gradient-websites;
+				}
+				&-stories {
+					@include gradient-stories;
+				}
+				&-ads {
+					@include gradient-ads;
+				}
+				&-emails {
+					@include gradient-e-mails;
+				}
+			}
+		}
+		&-placeholder {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 157px;
+			background-color: color('river-bed');
+		}
+		&-icon {
+			max-width: 108px;
+			fill: color('white');
+		}
+		&-content {
+			padding: 0 20px;
+		}
+		.guide-tag {
+			display: inline-flex;
+			align-items: center;
+			margin-top: 33px;
+			margin-bottom: 20px;
+			padding: 4px 10px;
+			border-radius: 12px;
+			background-color: #f3f3f3;
+			&-icon {
+				fill: color('blue-ribbon');
+				margin-right:10px;
+
+				&--glasses {
+					display: flex;
+					font-size: initial;
+					box-sizing: initial;
+					justify-content: center;
+					height: 14px;
+					width: 14px;
+				}
+				&--guide {
+					display: flex;
+					font-size: initial;
+					box-sizing: initial;
+					justify-content: center;
+					height: 17px;
+					width: 15px;
+				}
+			}
+			&-text {
+				font-weight: bold;
+				font-size: 10px;
+			}
+		}
+	}
+}

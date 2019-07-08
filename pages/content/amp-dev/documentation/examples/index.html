@@ -176,6 +176,8 @@ teaser:
           </a>
         </div>
       </section>
+
+
       {% do doc.styles.addCssFile('/css/components/molecules/teaser-playground.css') %}
       <section class="ap-m-teaser-playground">
         <div class="ap-m-teaser-playground-text">
@@ -192,7 +194,16 @@ teaser:
           </a>
         </div>
         <div class="ap-m-teaser-playground-image">
-          <amp-img class="ap--media" src="/static/img/playground-teaser@3x.png" layout="responsive" width="1668px" height="1236px" alt="Playground Teaser image"></amp-img>
+          <amp-img alt="Playground Teaser image"
+                   src="/static/img/playground-teaser@3x.png"
+                   class="ap--media"
+                   layout="responsive"
+                   width="1668px"
+                   height="1236px"
+                   srcset="/static/img/playground-teaser@3x.png 1600w,
+                           /static/img/playground-teaser@2x.png 1100w,
+                           /static/img/playground-teaser.png 500w">
+          </amp-img>
         </div>
       </section>
       <section class="ap-m-table-component-container">

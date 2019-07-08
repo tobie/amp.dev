@@ -23,6 +23,7 @@ and the current page title #}
   <div class="ap-m-breadcrumbs-crumb">{{ doc.collection.title }}</div>
   {% endif %}
 </nav>
+
 {% elif doc.pod_path.startswith('/content/amp-dev/documentation/examples') %}
 <nav class="ap-m-breadcrumbs">
   {% set guides_and_tutorials = g.doc('/content/amp-dev/documentation/guides-and-tutorials/index.html', locale=doc.locale) %}
@@ -33,9 +34,10 @@ and the current page title #}
   </span>
 
   {% set examples = g.doc('/content/amp-dev/documentation/examples/index.html', locale=doc.locale) %}
-  <a class="ap-m-breadcrumbs-crumb" href="{{ examples.url.path }}">{{ examples.titles('navigation') }}</a>
+  <div class="ap-m-breadcrumbs-crumb">{{ examples.titles('navigation') }}</a>
 </nav>
-{% elif doc.pod_path.startswith('/content/amp-dev/documentation/components/reference') %}
+
+{% elif doc.pod_path.startswith('/content/amp-dev/documentation/components') %}
 <nav class="ap-m-breadcrumbs">
   {% set guides_and_tutorials = g.doc('/content/amp-dev/documentation/guides-and-tutorials/index.html', locale=doc.locale) %}
   <a class="ap-m-breadcrumbs-crumb" href="{{ guides_and_tutorials.url.path }}">{{ _('Documentation') }}</a>
@@ -45,8 +47,9 @@ and the current page title #}
   </span>
 
   {% set components = g.doc('/content/amp-dev/documentation/components/index.html', locale=doc.locale) %}
-  <a class="ap-m-breadcrumbs-crumb" href="{{ components.url.path }}">{{ components.titles('navigation') }}</a>
+  <div class="ap-m-breadcrumbs-crumb">{{ components.titles('navigation') }}</a>
 </nav>
+
 {% elif doc.pod_path.startswith('/content/amp-dev/documentation/courses') %}
 <nav class="ap-m-breadcrumbs">
   {% set guides_and_tutorials = g.doc('/content/amp-dev/documentation/guides-and-tutorials/index.html', locale=doc.locale) %}
@@ -67,9 +70,10 @@ and the current page title #}
   <div class="ap-m-breadcrumbs-crumb">{{ doc.collection.title }}</a>
   {% endif %}
 </nav>
+
 {% elif doc.pod_path.startswith('/content/amp-dev/documentation/index.html') %}
 <nav class="ap-m-breadcrumbs">
-  {% set guides_and_tutorials = g.doc('/content/amp-dev/documentation/index.html', locale=doc.locale) %}
+  {% set guides_and_tutorials = g.doc('/content/amp-dev/documentation/guides-and-tutorials/index.html', locale=doc.locale) %}
   <a class="ap-m-breadcrumbs-crumb" href="{{ guides_and_tutorials.url.path }}">{{ _('Documentation') }}</a>
 
   {% if not doc.collection.bucket %}
@@ -77,7 +81,8 @@ and the current page title #}
     <svg class="ap-a-ico ap-m-breadcrumbs-angle"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#angle-down-solid"></use></svg>
   </span>
 
-  <div class="ap-m-breadcrumbs-crumb">Get Started</a>
+  {% set get_started = g.doc('/content/amp-dev/documentation/index.html', locale=doc.locale) %}
+  <div class="ap-m-breadcrumbs-crumb">{{ get_started.titles('navigation') }}</a>
   {% endif %}
 </nav>
 {% endif %}

@@ -24,7 +24,7 @@
 	padding: 0 60px;
 	background-color: color('whisper');
 
-  @media (min-width: 930px) {
+  @media (min-width: 1024px) {
     flex-direction: row;
   }
 
@@ -33,15 +33,16 @@
 		flex-direction: column;
 		align-content: center;
 
-    @media (min-width: 930px) {
-      width: 33%;
+    @media (min-width: 1024px) {
+      width: 45%;
+      max-width: 330px;
     }
 
 		h2 {
 			margin-bottom: 11px;
 		}
 		p {
-			margin: 0 0 10px;
+			margin: 0 0 15px;
 		}
 	}
 	&-image {
